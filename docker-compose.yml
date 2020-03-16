@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  db:
+    container_name: margaret_hamilton_database
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./data/margaret_hamilton:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=margaret_hamilton
+    ports:
+      - 27017:27017
