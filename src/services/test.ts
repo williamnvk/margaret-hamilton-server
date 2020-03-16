@@ -42,18 +42,12 @@ export class TestService {
 
   public updateTest(req: Request, res: Response) {
     const testId = req.params.id
-    Test.findByIdAndUpdate(
-      testId,
-      req.body,
-      (error: Error, test: any) => {
-        if (error) {
-          res.send(error)
-        }
-        const message = test
-          ? 'Updated successfully'
-          : 'Test not found :('
-        res.send(message)
+    Test.findByIdAndUpdate(testId, req.body, (error: Error, test: any) => {
+      if (error) {
+        res.send(error)
       }
-    )
+      const message = test ? 'Updated successfully' : 'Test not found :('
+      res.send(message)
+    })
   }
 }

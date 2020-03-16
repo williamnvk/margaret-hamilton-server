@@ -1,8 +1,5 @@
-
 import express, { Application } from 'express'
 import { TestController } from './controllers/test'
-
-//importing our MONGO_URL constant
 import { MONGO_URL } from './constants'
 import bodyParser from 'body-parser'
 import cors from 'cors'
@@ -30,7 +27,7 @@ class App {
     mongoose.Promise = global.Promise
 
     mongoose.connect(MONGO_URL, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
     })
   }
 }
