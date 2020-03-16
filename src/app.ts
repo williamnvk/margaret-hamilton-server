@@ -1,9 +1,11 @@
 import express, { Application } from 'express'
 import { TestController } from './controllers/test'
-import { MONGO_URL } from './constants'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 class App {
   public app: Application
@@ -25,8 +27,7 @@ class App {
 
   private setMongoConfig() {
     mongoose.Promise = global.Promise
-
-    mongoose.connect(MONGO_URL, {
+    mongoose.connect(process.env.DATABASE_URL as string, {
       useNewUrlParser: true,
     })
   }

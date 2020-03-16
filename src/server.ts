@@ -1,4 +1,8 @@
 import app from './app'
-import { PORT } from './constants/index'
+import * as dotenv from 'dotenv'
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+dotenv.config()
+
+app.listen(process.env.SERVER_PORT, () =>
+  console.log(`Listening on port ${process.env.SERVER_PORT}`)
+)
